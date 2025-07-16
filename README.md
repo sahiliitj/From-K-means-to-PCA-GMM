@@ -1,11 +1,9 @@
 # 📊 MNIST Clustering from Scratch – K-Means, PCA & GMM
 
 > Machine Learning Assignment – CSL7620  
-> **Author:** Sahil Sharma  
-> **Roll No.:** M21MA210  
-> **Program:** M.Sc - M.Tech (Data and Computational Sciences)  
-> **Institute:** Indian Institute of Technology, Jodhpur  
-> **Submission Date:** October 14, 2023  
+> **Author:** Sahil Sharma   
+> **Program:** M.Sc - M.Tech ( Mathematics & Data and Computational Sciences)  
+> **Institute:** Indian Institute of Technology, Jodhpur    
 
 ---
 
