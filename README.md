@@ -1,175 +1,137 @@
-📊 MNIST Clustering from Scratch – K-Means, PCA & GMM
-📁 Project Overview
-This project, developed as part of an assignment for the CSL7620 Machine Learning course at IIT Jodhpur, demonstrates unsupervised learning techniques applied to the MNIST dataset. The objective is to explore data clustering using two major workflows:
+# 📊 MNIST Clustering from Scratch – K-Means, PCA & GMM
 
-K-Means Clustering implemented from scratch using cosine similarity
+> Machine Learning Assignment – CSL7620  
+> **Author:** Sahil Sharma  
+> **Roll No.:** M21MA210  
+> **Program:** M.Sc - M.Tech (Data and Computational Sciences)  
+> **Institute:** Indian Institute of Technology, Jodhpur  
+> **Submission Date:** October 14, 2023  
 
-Principal Component Analysis (PCA) from scratch followed by Gaussian Mixture Model (GMM) clustering
+---
 
-The MNIST dataset of handwritten digits is used throughout the project to evaluate clustering quality and analyze the efficacy of different approaches.
+## 📝 Project Overview
 
-📚 Dataset
-MNIST Dataset
+This project explores unsupervised learning techniques using the MNIST dataset. Two main approaches are implemented:
 
-Contains 70,000 grayscale images of handwritten digits (0–9)
+- **K-Means Clustering** from scratch using cosine similarity
+- **PCA (Principal Component Analysis)** from scratch followed by **GMM (Gaussian Mixture Model)** clustering
 
-Image dimensions: 28x28 pixels
+---
 
-Training set: 60,000 images
+## 📁 Dataset Description
 
-Test set: 10,000 images
+- **Dataset:** [MNIST](http://yann.lecun.com/exdb/mnist/)
+- **Images:** 70,000 grayscale images of handwritten digits (0–9)
+- **Image Size:** 28x28 pixels
+- **Train Set:** 60,000 images
+- **Test Set:** 10,000 images
 
-🔍 Task 1: K-Means Clustering from Scratch
-📌 Subtasks
-Exploratory Data Analysis (EDA)
+---
 
-Visualized sample images
+## 🔍 Task 1: K-Means Clustering from Scratch
 
-Analyzed label distributions
+### ✅ Subtasks
 
-Examined pixel intensity distribution and correlation heatmap
+1. **Exploratory Data Analysis**
+    - Visualized sample images
+    - Analyzed digit distribution
+    - Observed pixel intensity histogram
+    - Correlation heatmap for image features
 
-K-Means Implementation
+2. **K-Means Implementation**
+    - Implemented from scratch using **cosine similarity**:
+      \[
+      \text{sim}(\theta) = \frac{v_1 \cdot v_2}{\|v_1\| \|v_2\|}
+      \]
 
-Implemented from scratch using cosine similarity instead of traditional Euclidean distance
+3. **Clustering Visualizations**
+    - Visual results shown for:
+      - `K = 4`
+      - `K = 7`
+      - `K = 10`
 
-Cosine similarity formula used:
+4. **Cluster Characteristics**
+    - Hard assignment
+    - Sensitivity to initialization and outliers
+    - Similar digits grouped together (e.g., 3 & 5)
+    - Best results observed at `K = 10`
 
-sim
-(
-𝜃
-)
-=
-𝑣
-1
-⋅
-𝑣
-2
-∥
-𝑣
-1
-∥
-∥
-𝑣
-2
-∥
-sim(θ)= 
-∥v 
-1
-​
- ∥∥v 
-2
-​
- ∥
-v 
-1
-​
- ⋅v 
-2
-​
- 
-​
- 
-Cluster Visualization
+5. **Finding Optimal `K`**
+    - Elbow Method used  
+    - Elbow point at `K = 10`
 
-Results shown for k = 4, k = 7, and k = 10 clusters
+📎 **Notebook:** [Google Colab – K-Means](https://colab.research.google.com/drive/1u0dqXh735Gu5G9CIX-_0zknUG-mP7mMn?usp=sharing)
 
-Images in each cluster visualized and analyzed
+---
 
-Cluster Analysis
+## 📈 Task 2: PCA from Scratch + GMM Clustering
 
-Observed that:
+### ✅ Subtasks
 
-Hard assignments can lead to overlapping class clusters
+1. **PCA Implementation**
+    - Implemented PCA from scratch
+    - Used `numpy.linalg.svd` for decomposition
+    - Tested with:
+        - 32 components
+        - 64 components
+        - 128 components
 
-K-Means is sensitive to outliers and initialization
+2. **GMM Clustering**
+    - Applied Gaussian Mixture Model using `sklearn.mixture.GaussianMixture`
+    - Clustering for:
+        - 4 clusters
+        - 7 clusters
+        - 10 clusters
 
-Best clustering observed at k = 10
+3. **Cluster Visualizations**
+    - Plotted results for each combination of components × clusters
 
-Optimal Cluster Count
+4. **Comparison with K-Means**
+    - GMM provides soft assignment (probabilistic)
+    - Handles noise & overlapping better than K-Means
+    - Non-spherical clusters possible
+    - More robust to outliers and complex patterns
 
-Elbow method used to determine optimal value of k
+5. **Optimal PCA Components**
+    - Best quality with **128 components**
+    - Clear image recognition and cluster separation
 
-Found k = 10 to be the most appropriate
+6. **When PCA May Fail (BONUS)**
+    - Data with **non-linear relationships**
+    - Data not **standardized**
+    - **Information loss** in low-variance components
+    - **Computationally expensive** for large datasets
+    - Sensitive to **outliers**
+    - May not be ideal for classification → Consider LDA (Fisher’s)
 
-📎 K-Means Google Colab Notebook
+📎 **Notebook:** [Google Colab – PCA + GMM](https://colab.research.google.com/drive/18XgKzS8CLidb-4eHtrv7lueAZH51mbmb?usp=sharing)
 
-📈 Task 2: PCA from Scratch + GMM Clustering
-📌 Subtasks
-PCA Implementation (from scratch)
+---
 
-PCA applied to reduce dimensionality using:
+## 🧠 Key Insights
 
-32 components
+- Cosine similarity effectively replaces Euclidean in K-Means
+- PCA simplifies high-dimensional data and enhances GMM results
+- GMM outperforms K-Means in separating complex clusters
+- Visualizations are essential for qualitative evaluation
 
-64 components
+---
 
-128 components
+## 🔗 References
 
-Libraries were used only for SVD (Singular Value Decomposition)
+- [K-Means Clustering – Wikipedia](https://en.wikipedia.org/wiki/K-means_clustering)  
+- [Gaussian Mixture Model – GeeksforGeeks](https://www.geeksforgeeks.org/gaussian-mixture-model/)  
+- [Mixture Models – Wikipedia](https://en.wikipedia.org/wiki/Mixture_model)  
+- [SVD – NumPy Documentation](https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html)  
+- [Digital Image Processing Basics](https://www.geeksforgeeks.org/digital-image-processing-basics/)
 
-GMM Clustering
+---
 
-Clustering performed using Gaussian Mixture Models
+## 🙋‍♂️ Author Info
 
-Implemented using sklearn.mixture.GaussianMixture
-
-Cluster Visualization
-
-Analyzed results for combinations of:
-
-Components = 32, 64, 128
-
-Clusters = 4, 7, 10
-
-Cluster Characteristics & Comparison with K-Means
-
-GMM provides soft assignments, leading to:
-
-Better handling of noise/outliers
-
-Better separation of overlapping clusters
-
-Clusters of non-spherical shapes (flexible boundaries)
-
-Observed that GMM significantly outperforms K-Means for this dataset
-
-Optimal Component Count
-
-Found 128 PCA components preserve sufficient information
-
-Bonus discussion on PCA limitations:
-
-Sensitive to scaling and outliers
-
-Ineffective for non-linear patterns
-
-Computationally expensive for large datasets
-
-📎 PCA & GMM Google Colab Notebook
-
-🧠 Key Learnings
-Importance of choosing the right similarity metric (cosine similarity worked well)
-
-PCA helps reduce dimensionality before applying complex clustering models
-
-GMM's probabilistic nature handles ambiguity better than hard-clustering methods like K-Means
-
-Visual analysis is critical to evaluate clustering performance effectively
-
-🔗 Resources Used
-📖 K-Means Clustering – Wikipedia
-
-📖 Gaussian Mixture Model – GeeksforGeeks
-
-📖 Mixture Models – Wikipedia
-
-📖 SVD in NumPy
-
-👨‍🎓 Author
-Name: Sahil Sharma
-Roll No: M21MA210
-Program: M.Sc - M.Tech (Data and Computational Sciences)
-Institution: Indian Institute of Technology, Jodhpur
-Course: CSL7620 - Machine Learning
-Submission Date: October 14, 2023
+```text
+Name       : Sahil Sharma
+Roll No.   : M21MA210
+Program    : M.Sc - M.Tech (Data and Computational Sciences)
+Institute  : Indian Institute of Technology, Jodhpur
+Course     : CSL7620 - Machine Learning
